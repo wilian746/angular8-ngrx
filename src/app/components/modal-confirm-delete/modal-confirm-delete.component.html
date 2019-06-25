@@ -1,1 +1,24 @@
-<p>modal-confirm-delete works!</p>
+<section class="container-modal">
+  <section class="modal">
+    <header>
+      <h5>Deseja realmente deletar este item?</h5>
+    </header>
+
+    <section class="container-content-modal">
+      <form></form>
+    </section>
+
+    <footer>
+      <button
+        class="cancel"
+        (click)="goToPage(null)"
+      >
+        Cancelar
+      </button>
+
+      <button class="delete">
+        Deletar
+      </button>
+    </footer>
+  </section>
+</section>

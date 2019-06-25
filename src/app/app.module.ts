@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ModalManagerProductComponent } from './components/modal-manager-product/modal-manager-product.component';
 import { ModalConfirmDeleteComponent } from './components/modal-confirm-delete/modal-confirm-delete.component';
 import { ProductService } from './services/product/product.service';
+import { TooltipModule } from 'ng2-tooltip-directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProductService } from './services/product/product.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TooltipModule
   ],
   providers: [
     ProductService

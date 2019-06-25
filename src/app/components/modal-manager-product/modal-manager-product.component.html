@@ -1,1 +1,24 @@
-<p>modal-manager-product works!</p>
+<section class="container-modal">
+  <section class="modal">
+    <header>
+      <h5>{{ modalType }} produto</h5>
+    </header>
+
+    <section class="container-content-modal">
+      <form></form>
+    </section>
+
+    <footer>
+      <button
+        class="cancel"
+        (click)="goToPage(null)"
+      >
+        Cancelar
+      </button>
+
+      <button class="save">
+        Salvar
+      </button>
+    </footer>
+  </section>
+</section>

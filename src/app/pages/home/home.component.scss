@@ -10,11 +10,10 @@ section.container-home { display: flex; justify-content: center; align-items: ce
       @media all and (max-width: 998px) { text-align: center; width: calc(100% - 40px); }
     }
 
-    button.add-button { display: flex; justify-content: space-between; align-items: center; min-width: 210px; border: none; background-color: $primaryMediumGreen; font-size: 14px; padding: 0 20px; line-height: 26px; border-radius: 5px; cursor: pointer; transition: all 0.5s ease;
+    button.add-button { display: flex; justify-content: space-between; align-items: center; min-width: 210px; border: none; background-color: $primaryMediumGreen; font-size: 14px; padding: 0 20px; line-height: 26px; border-radius: 5px; transition: all 0.5s ease;
       @media all and (max-width: 998px) { width: calc(100% - 40px); justify-content: center; margin: 20px; }
 
       &:hover { background-color: darken($primaryMediumGreen, 10%); }
-      &:active, &:focus { outline: none; }
 
       img { width: 16px; display: block;
         @media all and (max-width: 998px) { margin-right: 10px; }
@@ -30,9 +29,8 @@ section.container-home { display: flex; justify-content: center; align-items: ce
         td { text-align: center;
           ul.action-list { display: flex; justify-content: center; align-items: center; width: 100%; margin: 0; padding: 0;
             li.action-item { margin-right: 10px;
-              button { border: none; background: transparent; cursor: pointer; display: block; width: 30px; height: 30px; border-radius: 50%; transition: all 0.5s ease;
+              button { border: none; background: transparent; display: block; width: 30px; height: 30px; border-radius: 50%; transition: all 0.5s ease;
                 &:hover { background-color: #cdcdcd; }
-                &:active, &:focus { outline: none; }
 
                 img { display: block; width: 100%; }
               }

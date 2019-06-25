@@ -2,7 +2,12 @@
   <header>
     <h3>Gerenciador de produtos</h3>
 
-    <button class="add-button">
+    <button
+      class="add-button"
+      tooltip="Adicionar"
+      placement="bottom"
+      (click)="goToPage('new')"
+    >
       <img src="assets/img/add.svg">
 
       <span>Adicionar novo produto</span>
@@ -41,19 +46,28 @@
         <td>
           <ul class="action-list">
             <li class="action-item">
-              <button>
+              <button
+                tooltip="Detalhes"
+                (click)="goToPage('view/' + data.id)"
+              >
                 <img src="assets/img/view.svg">
               </button>
             </li>
 
             <li class="action-item">
-              <button>
+              <button
+                tooltip="Editar"
+                (click)="goToPage('edit/' + data.id)"
+              >
                 <img src="assets/img/edit.svg">
               </button>
             </li>
 
             <li class="action-item">
-              <button>
+              <button
+                tooltip="Excluir"
+                (click)="goToPage('delete/' + data.id)"
+              >
                 <img src="assets/img/delete.svg">
               </button>
             </li>

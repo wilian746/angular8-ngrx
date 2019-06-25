@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderTable } from 'src/app/models/table.interface';
 import * as ProductList from 'src/assets/data-static/products.json';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,10 @@ export class HomeComponent implements OnInit {
 
   selectedRow: any;
 
-  constructor() {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.table = {
       cols: [
         { field: 'name', header: 'Nome' },
@@ -33,4 +37,7 @@ export class HomeComponent implements OnInit {
     this.table.data = ProductList[Object.keys(ProductList)[0]];
   }
 
+  goToPage(routeName) {
+    this.router.navigate([{outlets: {modal: routeName}}]);
+  }
 }
