@@ -1,0 +1,65 @@
+<section class="container-home">
+  <header>
+    <h3>Gerenciador de produtos</h3>
+
+    <button class="add-button">
+      <img src="assets/img/add.svg">
+
+      <span>Adicionar novo produto</span>
+    </button>
+  </header>
+
+  <section class="container-table">
+    <table>
+      <tr>
+        <th *ngFor="let col of table.cols">
+          <strong>{{col.header}}</strong>
+        </th>
+      </tr>
+
+      <tr *ngFor="let data of table.data">
+        <td *ngIf="data[table.cols[0].field]">
+          {{data[table.cols[0].field]}}
+        </td>
+
+        <td *ngIf="data[table.cols[1].field]">
+          {{data[table.cols[1].field]}}
+        </td>
+
+        <td *ngIf="data[table.cols[2].field]">
+          {{data[table.cols[2].field]}}
+        </td>
+
+        <td *ngIf="data[table.cols[3].field]">
+          {{data[table.cols[3].field]}}
+        </td>
+
+        <td *ngIf="data[table.cols[4].field]">
+          {{data[table.cols[4].field]}}
+        </td>
+
+        <td>
+          <ul class="action-list">
+            <li class="action-item">
+              <button>
+                <img src="assets/img/view.svg">
+              </button>
+            </li>
+
+            <li class="action-item">
+              <button>
+                <img src="assets/img/edit.svg">
+              </button>
+            </li>
+
+            <li class="action-item">
+              <button>
+                <img src="assets/img/delete.svg">
+              </button>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </section>
+</section>

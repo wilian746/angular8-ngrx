@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@import './variables.scss';
+
+/* Generic styles */
+html, body { display: block; $widthHeight: 100%; width: $widthHeight; height: $widthHeight; margin: 0; padding: 0; overflow: auto;
+  &, * { font-family: $fontGlobal; }
+}
+
+ul { list-style-type: none; }

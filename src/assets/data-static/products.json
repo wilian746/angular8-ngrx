@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Arroz grão longo",
+    "description": "Conhecido como agulhinha, é o mais usado no Brasil. Fica bem solto após o cozimento",
+    "price": 14.90,
+    "weight": 5,
+    "measure": "KG",
+    "quantity": 150
+  },
+  {
+    "id": 2,
+    "name": "Feijão carioca",
+    "description": "Por ser rico em fibras, o feijão protege o sistema digestivo, ajuda a controlar o apetite e auxilia também na manutenção e até na redução de peso.",
+    "price": 3.70,
+    "weight": 1,
+    "measure": "KG",
+    "quantity": 120
+  },
+  {
+    "id": 3,
+    "name": "Oléo de soja",
+    "description": "Por ser rico em fibras, o feijão protege o sistema digestivo, ajuda a controlar o apetite e auxilia também na manutenção e até na redução de peso.",
+    "price": 2.99,
+    "weight": 1,
+    "measure": "L",
+    "quantity": 210
+  }
+]
