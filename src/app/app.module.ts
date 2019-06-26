@@ -8,6 +8,7 @@ import { ModalManagerProductComponent } from './components/modal-manager-product
 import { ModalConfirmDeleteComponent } from './components/modal-confirm-delete/modal-confirm-delete.component';
 import { ProductService } from './services/product/product.service';
 import { TooltipModule } from 'ng2-tooltip-directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { TooltipModule } from 'ng2-tooltip-directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TooltipModule
+    TooltipModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ProductService

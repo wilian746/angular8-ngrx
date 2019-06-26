@@ -1,11 +1,123 @@
 <section class="container-modal">
   <section class="modal">
     <header>
-      <h5>{{ modalType }} produto</h5>
+      <h5>{{ modalTitle }}</h5>
     </header>
 
     <section class="container-content-modal">
-      <form></form>
+      <form [formGroup]="form">
+        <section class="section-input">
+          <p>
+            <input
+              [ngClass]="{'filled': form.get('name').value && form.get('name').value.length > 0, 'error': form.get('name').hasError('required') && (form.get('name').touched || form.get('name').dirty)}"
+              type="text"
+              formControlName="name"
+            >
+            <label>Nome *</label>
+          </p>
+
+          <div
+            class="form-message text-danger"
+            *ngIf="form.get('name').hasError('required') && (form.get('name').touched || form.get('name').dirty)"
+          >
+            <span>Campo Obrigatório</span>
+          </div>
+        </section>
+
+        <section class="section-input">
+          <p>
+            <input
+              [ngClass]="{'filled': form.get('description').value && form.get('description').value.length > 0, 'error': form.get('description').hasError('required') && (form.get('description').touched || form.get('description').dirty)}"
+              type="text"
+              formControlName="description"
+            >
+            <label>Descrição *</label>
+          </p>
+          <div
+            class="form-message text-danger"
+            *ngIf="form.get('description').hasError('required') && (form.get('description').touched || form.get('description').dirty)"
+          >
+            <span>Campo Obrigatório</span>
+          </div>
+        </section>
+
+        <section class="section-input">
+          <p>
+            <input
+              [ngClass]="{'filled': form.get('price').value, 'error': form.get('price').hasError('required') && (form.get('price').touched || form.get('price').dirty)}"
+              type="number"
+              formControlName="price"
+            >
+            <label>Preço *</label>
+          </p>
+
+          <div
+            class="form-message text-danger"
+            *ngIf="form.get('price').hasError('required') && (form.get('price').touched || form.get('price').dirty)"
+          >
+            <span>Campo Obrigatório</span>
+          </div>
+        </section>
+
+        <section class="section-input">
+          <p>
+            <input
+              [ngClass]="{'filled': form.get('weight').value, 'error': form.get('weight').hasError('required') && (form.get('weight').touched || form.get('weight').dirty)}"
+              type="number"
+              formControlName="weight"
+            >
+            <label>Peso *</label>
+          </p>
+
+          <div
+            class="form-message text-danger"
+            *ngIf="form.get('weight').hasError('required') && (form.get('weight').touched || form.get('weight').dirty)"
+          >
+            <span>Campo Obrigatório</span>
+          </div>
+        </section>
+
+        <section class="section-input">
+          <p>
+            <input
+              [ngClass]="{'filled': form.get('quantity').value, 'error': form.get('quantity').hasError('required') && (form.get('quantity').touched || form.get('quantity').dirty)}"
+              type="number"
+              formControlName="quantity"
+            >
+            <label>Quantidade *</label>
+          </p>
+
+          <div
+            class="form-message text-danger"
+            *ngIf="form.get('quantity').hasError('required') && (form.get('quantity').touched || form.get('quantity').dirty)"
+          >
+            <span>Campo Obrigatório</span>
+          </div>
+        </section>
+
+        <section class="section-input">
+          <p class="no-floating">
+            <label>Unidade de medida *</label>
+
+            <select formControlName="measure">
+              <option
+                *ngFor="let item of listMeasure"
+                [value]="item.value"
+                class="select-items"
+              >
+                {{item.text}}
+              </option>
+            </select>
+          </p>
+
+          <div
+            class="form-message text-danger"
+            *ngIf="form.get('measure').hasError('required') && (form.get('measure').touched || form.get('measure').dirty)"
+          >
+            <span>Campo Obrigatório</span>
+          </div>
+        </section>
+      </form>
     </section>
 
     <footer>
@@ -16,7 +128,10 @@
         Cancelar
       </button>
 
-      <button class="save">
+      <button
+        *ngIf="typeModal !== 'view'"
+        class="save"
+      >
         Salvar
       </button>
     </footer>

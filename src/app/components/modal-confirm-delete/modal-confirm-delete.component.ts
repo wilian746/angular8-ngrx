@@ -9,12 +9,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ModalConfirmDeleteComponent implements OnInit {
 
+  productName: string;
+  id: number;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.productName = this.id = this.route.snapshot.params.id;
   }
 
   goToPage(routeName) {

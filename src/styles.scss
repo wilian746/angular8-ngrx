@@ -7,12 +7,17 @@ html, body { display: block; $widthHeight: 100%; width: $widthHeight; height: $w
 
 ul { list-style-type: none; }
 
+select,
+select option,
+input,
 button { cursor: pointer;
   &:focus { outline: none; }
 }
 
 section.container-modal { display: flex; justify-content: center; align-items: center; position: fixed; $widthHeight: 100%; width: $widthHeight; height: $widthHeight; z-index: 5; background-color: rgba(#000, 0.5); overflow: auto;
   section.modal { display: flex; justify-items: center; align-items: center; flex-direction: column; width: 500px; height: 500px; background-color: #fff; padding: 20px; position: relative; border-radius: 5px;
+    &.no-section { height: auto; }
+
     section.container-content-modal, header, footer { display: block; width: 100%; }
 
     header {
@@ -33,6 +38,42 @@ section.container-modal { display: flex; justify-content: center; align-items: c
 
         &.delete { background-color: darken($primaryMediumRed, 10%); color: #fff; }
       }
+    }
+  }
+}
+
+
+form { display: block; width: 100%;
+  section.section-input { position: relative; margin: 40px 0;
+    &:last-of-type, &:first-of-type { margin: 25px 0; }
+
+    p { display: block; width: 100%; position: relative;
+      &.no-floating { display: flex; justify-content: flex-start; align-items: center;
+        label { position: relative !important; top: 0 !important; left: 0 !important; margin-right: 15px; }
+      }
+
+      input { display: block; width: 100%; background-color: transparent; color: #585858; border: none; border-bottom: 1px solid #585858; line-height: 20px; font-size: 14px;
+        &.error { border-color: $primaryMediumRed; }
+
+        &.filled:not(.error) { border-color: $primaryMediumGreen; }
+      }
+
+      label { display: block; color: #585858; font-size: 14px; $lineHeight: 20px; line-height: $lineHeight; height: $lineHeight; position: absolute; pointer-events: none; transition: all 0.3s ease; }
+
+      input:not(:focus) ~ label { bottom: 3px; left: 10px; font-size: 12px; }
+
+      input.filled ~ label,
+      input:focus ~ label { bottom: 25px; left: 0; }
+
+      select { border: 1px solid #585858; width: 250px; background-color: transparent; height: 30px; border-radius: 20px; padding: 0 15px;
+        option { transition: all 0.3s ease; color: #505050; }
+      }
+    }
+
+    div.form-message { display: block; margin: 0; position: absolute; top: 100%; left: 0; margin-top: 5px; width: 100%;
+      &.text-danger span { color: $primaryMediumRed; }
+
+      span { display: block; width: 100%; font-size: 12px; $lineHeight: 14px; line-height: $lineHeight; height: $lineHeight; text-align: center; }
     }
   }
 }
