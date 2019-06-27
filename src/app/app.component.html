@@ -1,11 +1,14 @@
 <section class="container app-container">
-  <section class="container-count">
+  <!-- <section class="container-count">
     <h5>Contador: {{ count$ | async }} </h5>
 
     <button (click)="add()">Adicionar no contador</button>
     <button (click)="substract()">Remover no contador</button>
     <button (click)="reset()">Resetar o contador</button>
-  </section>
+  </section> -->
+
+  <router-outlet name="modal"></router-outlet>
+  <router-outlet></router-outlet>
 </section>
 
 
@@ -13,5 +16,3 @@
 
 
 
-<!-- <router-outlet name="modal"></router-outlet>
-<router-outlet></router-outlet> -->
