@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: `${window.location.host}/assets/data-static/products.json`
 };

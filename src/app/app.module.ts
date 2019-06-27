@@ -9,6 +9,9 @@ import { ModalConfirmDeleteComponent } from './components/modal-confirm-delete/m
 import { ProductService } from './services/product/product.service';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { countStore } from './store/reducers/count.reducers';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     TooltipModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({ count: countStore }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: false,
+      features: {
+        pause: false,
+        lock: true,
+        persist: true
+      }
+    })
   ],
   providers: [
     ProductService
