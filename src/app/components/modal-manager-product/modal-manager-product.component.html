@@ -129,7 +129,9 @@
       </button>
 
       <button
+        (click)="save()"
         *ngIf="typeModal !== 'view'"
+        [disabled]="form.invalid"
         class="save"
       >
         Salvar

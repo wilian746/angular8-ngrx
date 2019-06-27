@@ -32,11 +32,15 @@ section.container-modal { display: flex; justify-content: center; align-items: c
           &.save { background-color: darken($primaryMediumGreen, 10%); }
 
           &.delete { background-color: darken($primaryMediumRed, 20%); }
+
+          &:disabled { background-color: #eee; }
         }
 
         &.save { background-color: $primaryMediumGreen; color: #fff; }
 
         &.delete { background-color: darken($primaryMediumRed, 10%); color: #fff; }
+
+        &:disabled { background-color: #eee; color: #585858; }
       }
     }
   }

@@ -1,1 +1,1 @@
-export const initialUserState: number = null;
+export const initialCountState: number = null;
