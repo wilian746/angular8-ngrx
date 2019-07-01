@@ -48,7 +48,7 @@
             <li class="action-item">
               <button
                 tooltip="Detalhes"
-                (click)="goToPage('view/' + data.id)"
+                (click)="goToPage('view', data)"
               >
                 <img src="assets/img/view.svg">
               </button>
@@ -57,7 +57,7 @@
             <li class="action-item">
               <button
                 tooltip="Editar"
-                (click)="goToPage('edit/' + data.id)"
+                (click)="goToPage('edit', data)"
               >
                 <img src="assets/img/edit.svg">
               </button>
@@ -66,7 +66,7 @@
             <li class="action-item">
               <button
                 tooltip="Excluir"
-                (click)="goToPage('delete/' + data.id)"
+                (click)="goToPage('delete', data)"
               >
                 <img src="assets/img/delete.svg">
               </button>

@@ -7,12 +7,15 @@
     <footer>
       <button
         class="cancel"
-        (click)="goToPage(null)"
+        (click)="goToPage()"
       >
         Cancelar
       </button>
 
-      <button class="delete">
+      <button
+        class="delete"
+        (click)="delete()"
+      >
         Deletar
       </button>
     </footer>

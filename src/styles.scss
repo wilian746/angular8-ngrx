@@ -21,7 +21,7 @@ section.container-modal { display: flex; justify-content: center; align-items: c
     section.container-content-modal, header, footer { display: block; width: 100%; }
 
     header {
-      h5 { color: #585858; display: block; text-align: center; width: 100%; font-size: 16px; text-transform: uppercase; }
+      h5 { color: #585858; display: block; text-align: center; width: 100%; font-size: 16px; text-transform: uppercase; word-break: break-word; max-width: 500px; }
     }
 
     section.container-content-modal { flex-grow: 1; margin-bottom: 15px; overflow-y: auto; overflow-x: hidden; }

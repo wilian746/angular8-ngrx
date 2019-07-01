@@ -9,6 +9,7 @@
         <section class="section-input">
           <p>
             <input
+              maxlength="100"
               [ngClass]="{'filled': form.get('name').value && form.get('name').value.length > 0, 'error': form.get('name').hasError('required') && (form.get('name').touched || form.get('name').dirty)}"
               type="text"
               formControlName="name"
@@ -27,6 +28,7 @@
         <section class="section-input">
           <p>
             <input
+              maxlength="100"
               [ngClass]="{'filled': form.get('description').value && form.get('description').value.length > 0, 'error': form.get('description').hasError('required') && (form.get('description').touched || form.get('description').dirty)}"
               type="text"
               formControlName="description"

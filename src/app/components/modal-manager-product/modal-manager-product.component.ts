@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { IProduct } from 'src/app/models/product.interface';
-import { CreateUser } from 'src/app/store/actions/user.action';
+import { CreateProduct, UpdateProduct } from 'src/app/store/actions/product.action';
+import { ProductState } from 'src/app/store/state/product.state';
 
 @Component({
   selector: 'app-modal-manager-product',
@@ -42,6 +43,20 @@ export class ModalManagerProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.store.pipe(select('product')).subscribe((state: ProductState) => {
+      if (state.selectedProduct) {
+        this.form.patchValue({
+          id: state.selectedProduct.id,
+          name: state.selectedProduct.name,
+          description: state.selectedProduct.description,
+          price: state.selectedProduct.price,
+          weight: state.selectedProduct.weight,
+          measure: state.selectedProduct.measure,
+          quantity: state.selectedProduct.quantity
+        });
+      }
+    });
+
     this.id = this.route.snapshot.params.id;
     if (this.route.snapshot.routeConfig.path.includes('new')) {
       this.modalTitle = 'Adicionar produto';
@@ -77,10 +92,15 @@ export class ModalManagerProductComponent implements OnInit {
         quantity: this.form.value.quantity
       };
 
-      // this.store.dispatch(new CreateUser(data));
+      if (this.typeModal === 'new') {
+        this.store.dispatch(new CreateProduct(data));
+      }
+
+      if (this.typeModal === 'edit') {
+        this.store.dispatch(new UpdateProduct(data.id, data));
+      }
 
       this.goToPage(null);
-      console.error('Data!', this.form.value);
     } else {
       console.error('FORM INVALID!');
     }

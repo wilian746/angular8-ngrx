@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { countStore } from './store/reducers/count.reducers';
+import { productStore } from './store/reducers/product.reducers';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,10 @@ import { countStore } from './store/reducers/count.reducers';
     TooltipModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ count: countStore }),
+    StoreModule.forRoot({
+      count: countStore,
+      product: productStore
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: false,

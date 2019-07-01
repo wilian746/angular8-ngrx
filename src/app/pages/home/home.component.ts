@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderTable } from 'src/app/models/table.interface';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { IProduct } from 'src/app/models/product.interface';
+import { Store, select } from '@ngrx/store';
+import { ProductState } from 'src/app/store/state/product.state';
+import { SetSelectedProduct } from 'src/app/store/actions/product.action';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +15,14 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   table: {
     cols: HeaderTable[],
-    data: any,
+    data: Array<IProduct>,
   };
 
   selectedRow: any;
 
   constructor(
-    private router: Router
+    private router: Router,
+    public store: Store<{ product: ProductState }>
   ) {
     this.table = {
       cols: [
@@ -26,15 +32,24 @@ export class HomeComponent implements OnInit {
         { field: 'measure', header: 'Unidade de medida' },
         { field: 'action', header: 'Ações' }
       ],
-      data: [],
+      data: null,
     };
+
+    store.pipe(select('product')).subscribe((state: ProductState) => {
+      this.table.data = state.products;
+    });
   }
 
   ngOnInit() {
-    // this.table.data = ProductList[Object.keys(ProductList)[0]];
   }
 
-  goToPage(routeName) {
-    this.router.navigate([{outlets: {modal: routeName}}]);
+  goToPage(routerType, data) {
+    if (data) {
+      this.store.dispatch(new SetSelectedProduct(data));
+      this.router.navigate([{outlets: {modal: `${routerType}/${data.id}`}}]);
+    } else {
+      this.router.navigate([{outlets: {modal: routerType}}]);
+    }
+
   }
 }
