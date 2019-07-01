@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProductState } from 'src/app/store/state/product.state';
 import { Store, select } from '@ngrx/store';
 import * as _ from 'lodash';
-import { DeleteProduct } from 'src/app/store/actions/product.action';
+import { DeleteProduct, SetSelectedProduct } from 'src/app/store/actions/product.action';
 
 @Component({
   selector: 'app-modal-confirm-delete',
@@ -36,6 +36,7 @@ export class ModalConfirmDeleteComponent implements OnInit {
 
   goToPage() {
     this.router.navigate([{outlets: {modal: null}}]);
+    this.store.dispatch(new SetSelectedProduct(null));
   }
 
   delete() {
