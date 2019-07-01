@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
 import { IProduct } from 'src/app/models/product.interface';
-import { CreateProduct, UpdateProduct } from 'src/app/store/actions/product.action';
+import { CreateProduct, UpdateProduct, SetSelectedProduct } from 'src/app/store/actions/product.action';
 import { ProductState } from 'src/app/store/state/product.state';
 
 @Component({
@@ -100,13 +100,14 @@ export class ModalManagerProductComponent implements OnInit {
         this.store.dispatch(new UpdateProduct(data.id, data));
       }
 
-      this.goToPage(null);
+      this.goToPage();
     } else {
       console.error('FORM INVALID!');
     }
   }
 
-  goToPage(routeName) {
-    this.router.navigate([{outlets: {modal: routeName}}]);
+  goToPage() {
+    this.router.navigate([{outlets: {modal: null}}]);
+    this.store.dispatch(new SetSelectedProduct(null));
   }
 }
