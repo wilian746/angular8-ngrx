@@ -1,6 +1,4 @@
-import {
-  ProductActionsTypes
-} from '../actions/product.action';
+import { ProductActionsTypes } from '../actions/product.action';
 import { initialProductState, ProductState } from '../state/product.state';
 import * as _ from 'lodash';
 
