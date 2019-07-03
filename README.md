@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## Demo
-![Demo](https://i.ibb.co/qy2tDmJ/Localstorage-With-Ngrx.gif)
+![ScreenShot](https://github.com/wilian746/localstorage-with-ngrx/tree/master/src/assets/img/LocalstorageWithNgrx.gif)
